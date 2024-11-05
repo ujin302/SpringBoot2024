@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>리터럴</h1>
+    <ul>
+        <li>'hello' + 'world' = <span th:text="'hello' + 'world'"></span></li>
+        <li>'hello world' = <span th:text="'hello world'"></span></li>
+        <li>'hello ' + ${data} = <span th:text="'hello ' + ${data}"></span></li>
+        <li>리터럴 대체 |'hello ' + ${data}| = <span th:text="|'hello ' + ${data}|"></span></li>
+    </ul>
+</body>
+</html>
+
+<!--/*
+    파이프 기호 |를 사용하여 텍스트를 출력할 수 있다.
+    Thymeleaf에서 파이프 기호는 텍스트 내에서 변수를 삽입할 때 사용된다.
+*/-->

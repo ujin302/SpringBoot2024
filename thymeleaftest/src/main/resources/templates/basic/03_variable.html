@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SpringEL 표현식</h1>
+    <h3>Object</h3>
+    <ul>
+        <li>${aa.name} = <span th:text="${aa.name}"></span></li>
+        <li>${aa.name} = <span th:text="${aa['name']}"></span></li>
+        <li>${aa.name} = <span th:text="${aa.getName}"></span></li>
+    </ul><br>
+
+    <h3>List</h3>
+    <ul>
+        <li>${list[0].name} = <span th:text="${list[0].name}"></span></li>
+        <li>${list[0]['name']} = <span th:text="${list[0]['name']}"></span></li>
+        <li>${list[0].getName} = <span th:text="${list[0].getName}"></span></li>
+        <li>${list[1].name} = <span th:text="${list[1].name}"></span></li>
+        <li>${list[2].name} = <span th:text="${list[2].name}"></span></li>
+    </ul><br>
+
+    <h3>Map</h3>
+    <ul>
+        <li>${map['cc'].name} = <span th:text="${map['cc'].name}"></span></li>
+        <li>${map['cc']['name']} = <span th:text="${map['cc']['name']}"></span></li>
+        <li>${map['cc'].getName} = <span th:text="${map['cc'].getName}"></span></li>
+    </ul><br>
+
+    <h3>지역변수 => (th:with="변수= ${변수명}")</h3>
+    <ul th:with="first=${list[0]}">
+        <li>이름: <span th:text="${first.name}"></span></li>
+        <li>나이: <span th:text="${first.age}"></span></li>
+    </ul>
+    <ul th:with="second=${list[0]}">
+        <li>이름: <span th:text="${second.name}"></span></li>
+        <li>나이: <span th:text="${second.age}"></span></li>
+    </ul>
+    <br>
+</body>
+</html>
