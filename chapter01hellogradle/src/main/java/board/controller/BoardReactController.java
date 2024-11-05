@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import board.bean.BoardDTO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 
@@ -21,7 +21,7 @@ public class BoardReactController {
     private static int seq = 0;
     
     @PostMapping("/submit")
-    public String submit(@ModelAttribute BoardDTO boardDTO) {
+    public String submit(@RequestBody BoardDTO boardDTO) {
         boardDTO.setLogtime(new Date());
         boardDTO.setSeq(seq);
         seq++;

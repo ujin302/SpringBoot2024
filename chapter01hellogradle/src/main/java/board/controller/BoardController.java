@@ -34,7 +34,7 @@ public class BoardController {
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setSeq(10);
         boardDTO.setName("허균");
-        boardDTO.setSubjeck("홍길동전");
+        boardDTO.setSubject("홍길동전");
         boardDTO.setContent("의적");
         boardDTO.setLogtime(new Date());        
         return boardDTO;
@@ -47,7 +47,7 @@ public class BoardController {
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setSeq(10);
         boardDTO.setName("허균");
-        boardDTO.setSubjeck("홍길동전");
+        boardDTO.setSubject("홍길동전");
         boardDTO.setContent("의적");
         boardDTO.setLogtime(new Date());
         boardList.add(boardDTO);
@@ -55,7 +55,7 @@ public class BoardController {
         boardDTO = new BoardDTO();
         boardDTO.setSeq(11);
         boardDTO.setName("김수정");
-        boardDTO.setSubjeck("둘리");
+        boardDTO.setSubject("둘리");
         boardDTO.setContent("빙하타고~");
         boardDTO.setLogtime(new Date());
 

@@ -9,7 +9,7 @@ import lombok.Data;
 public class BoardDTO {
     private int seq;
     private String name;
-    private String subjeck;
+    private String subject;
     private String content;
     private Date logtime;
 }
