@@ -1,0 +1,57 @@
+form {
+    border: 2px solid orange;
+    width: 80%;
+    margin: auto;
+}
+
+.title {
+    color: orange;
+}
+
+.table {
+    margin: 50px auto;
+    text-align: center;
+    /* border: 2px solid orange; */
+
+    padding: 5%;
+}
+
+.table th, .table td {
+    font-size: 17px;
+    padding-top: 2%;
+}
+
+.table input {
+    height: 17px;
+    width: 200px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.btn {
+    background-color: orange;
+    border-color: #fff9eb;
+    border-radius: 2%;
+    
+    color: #fff9eb;
+    font-size: medium;
+
+    margin-top: 5%;
+    padding: 2% 5%;
+}
+
+#idDiv, #pwdDiv {
+    color: red;
+    font-size: 8pt;
+
+    text-align: left;
+    margin-top: 1%;
+    margin-left: 10px;
+}
+
+#Div {
+    color: red;
+    font-size: 12pt;
+
+    margin-top: 10%;
+}
