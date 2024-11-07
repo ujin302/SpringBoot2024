@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>표현식 기본 객체 (Expression Basic Objects)</h1>
+    <ul>
+        <li>locale: <span th:text="${#locale}">현재 요청의 언어 및 지역정보 가져옴.</span></li>
+        <li>spring bean: <span th:text="${@helloTest.hello('Spring Boot!')}"></span></li>
+        <!--/* 
+            [ 형식 ]
+                ${@빈이름.함수명(매개변수)}
+                ${@ }: 스프링 빈을 참조
+            [ 흐름 ]
+            helloTest 빈의 hello 메서드를 호출하고, 결과를 템플릿에 출력
+
+            [ 활용 ]
+            @Compontet, @Service, @Repository 등 어노테이션을 활용한 생성된 빈
+        */-->
+    </ul>
+    <hr>
+    [[${startTime}]] <br>
+    [[${#temporals.format(startTime, 'yyyy-MM-dd HH:mm:ss')}]] <br>
+    [[${#temporals.format(startTime, 'yyyy년 MM월 dd일 HH시 mm분 ss초')}]] <br><br>
+
+    <!--/*
+        타임리프에서 [[ ]]는 표현식(Expression)을 나타내는 구문
+        [[ ]] 안에 작성된 내용은 변수나 표현식을 평가하여 결과를 html에 삽입하는데 사용됨.
+    */-->
+
+
+    <!--/* 
+        Thymeleaf가 제공하는 내장 함수로, 현재 시각이나 날짜를 표현, #dates 및 #calendars 유틸리티
+
+        [ 형식 ]
+            ${#타임리프내장함수이름}
+    */-->
+    [[${#dates}]] <br>
+    [[${#dates.createNow()}]] <br>
+    [[${#dates.createToday()}]] <br>
+    [[${#dates.format(#dates.createNow(), 'YYYY/MM/dd HH:mm')}]] <br>
+    [[${#dates.format(#dates.createNow(), 'YYYY년 MM월 d일')}]] <br>
+    [[${#dates.format(#dates.createNow(), 'hh:mm:ss')}]] <br>
+    [[${#dates.format(#dates.createNow(), 'ddd dd d')}]] <br>
+    [[${#calendars.dayOfWeekName(#dates.createNow())}]] <br>
+    <hr>
+
+    <!--/* Thymeleaf에서 [[strings]]는 특정 문자열이나 변수의 값을 출력할 때 사용되는 표현식 */-->
+    [[${#strings}]] <br>
+    [[${#strings.isEmpty(param.name)}]] <br>
+    [[${#strings.isEmpty(startTime)}]] <br>
+    [[${#strings.isEmpty(str)}]] <br>
+    [[${#strings.length(str)}]] <br>
+    '[[${#strings.toLowerCase(str)}]]' <br>
+    '[[${#strings.toUpperCase(str)}]]' <br>
+    '[[${str}]]' <br>
+    '[[${#strings.trim(str)}]]' <br>
+    
+    <hr>
+    <ul>
+        <li>${num}: <span th:text="${num}"></span></li>
+        <li>
+            ${#numbers.formatInteger(num, 3, 'COMMA')} = <span th:text="${#numbers.formatInteger(num, 3, 'COMMA')}"></span>
+        </li> 
+        <li>
+            ${#numbers.formatCurrency(num)} = <span th:text="${#numbers.formatCurrency(num)}"></span>
+        </li>
+        <li>
+            
+            ${#numbers.formatDecimal(num, 3, 'COMMA', 2, 'POINT')} = <span th:text="${#numbers.formatDecimal(num, 3, 'COMMA', 2, 'POINT')}"></span>
+        </li>
+    </ul>
+    <hr>
+
+    [[${param}]] <br>
+    [[${param.size()}]] <br>
+    [[${param.isEmpty()}]] <br>
+    <hr>
+
+    [[${session}]] <br>
+    [[${session.memId}]] <br>
+    [[${session.memName}]] <br>
+    [[${session.size()}]] <br>
+    [[${session.isEmpty()}]] <br>
+    [[${session.keySet()}]] <br>
+
+</body>
+</html>

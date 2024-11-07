@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+table {
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <h1>each</h1>
+    <table border="1">
+        <tr>
+            <th width="100">번호: index</th>
+            <th width="100">번호: count</th>
+            <th width="100">이름</th>
+            <th width="70">나이</th>
+            <th width="100">구분</th>
+        </tr>
+        <tr th:each="dto, dtoState: ${list}">
+            <td th:text="${dtoState.index}">1</td>
+            <td th:text="${dtoState.count}">1</td>
+            <td th:text="${dto.name}">name</td>
+            <td th:text="${dto.age}">age</td>
+            <td>
+                <span th:if="${dto.age >= 20}">성인</span>
+                <span th:if="${dto.age < 20}">청소년</span>
+            </td>
+        </tr>
+    </table>
+    <br>
+
+    <h1>switch</h1>
+    <table border="1">
+        <tr>
+            <th width="100">번호: index</th>
+            <th width="100">번호: count</th>
+            <th width="100">이름</th>
+            <th width="70">나이</th>
+            <th width="100">구분</th>
+        </tr>
+        <tr th:each="dto, dtoState: ${list}">
+            <td th:text="${dtoState.index}">1</td>
+            <td th:text="${dtoState.count}">1</td>
+            <td th:text="${dto.name}">name</td>
+            <td th:text="${dto.age}">age</td>
+            <td th:switch="${dto.age}">
+                <span th:case="18">10대</span>
+                <span th:case="25">20대</span>
+                <span th:case="*">30대 이상</span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

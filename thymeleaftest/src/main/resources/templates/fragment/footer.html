@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <footer th:fragment="foot(styles)" th:attr="style=${styles}">
+        Footer 자리
+    </footer>
+
+    <footer th:fragment="footParam(param1, param2, styles)" th:attr="style=${styles}">
+        <p>foot 파라미터 자리입니다.</p>
+        <p th:text="${param1}"></p>
+        <p th:text="${param2}"></p>
+    </footer>
+</body>
+</html>

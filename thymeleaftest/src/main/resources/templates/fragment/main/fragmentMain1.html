@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    header {
+        height : 100px;
+        background-color : yellow;
+    }
+    footer {
+        height : 100px;
+        background-color : pink;
+    }
+    section {
+        height : 200px;
+        background-color : green;
+    }
+</style>
+</head>
+<body>
+    <!--/*
+        insert
+        : 다른 html의 fragment 삽입
+        
+        [ 형식 ]
+            파일 경로 :: fragment 이름
+            basic/fragment/menu: 파일 경로
+            header: fragment 이름
+    */-->
+    <header th:insert="fragment/menu :: header">여기는 menu</header>
+    <section>
+        여기는 fragmentMain1.html 페이지입니다.
+    </section>
+    <footer th:insert="fragment/info :: info">여기는 info</footer>
+</body>
+</html>

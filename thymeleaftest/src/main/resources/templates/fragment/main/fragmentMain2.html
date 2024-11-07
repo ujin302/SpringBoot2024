@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>부분 포함 테스트</h1>
+    <hr>
+    <h2>부분 포함 insert</h2>
+    <div th:insert="~{fragment/footer :: foot('color: red;')}">룰루</div>
+    
+    <h2>부분 포함 replace</h2>
+    <div th:replace="~{fragment/footer :: foot('color: blue;')}">랄라</div>
+    
+    <h2>부분 포함 단순 표현식</h2>
+    <div th:insert="~{fragment/footer :: foot('color: magenta;')}">하하</div>
+    
+    <h2>파라미터 사용</h2>
+    <div th:replace="~{fragment/footer :: footParam('데이터1', '데이터2', 'color: green;')}"></div>
+    <div th:replace="fragment/footer :: footParam('데이터111', '데이터222', 'color: green;')"></div>
+</body>
+</html>

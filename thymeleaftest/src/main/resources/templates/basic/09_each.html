@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+table {
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <h1>기본 테이블</h1>
+    <table border="1">
+        <tr>
+            <th width="100">이름</th>
+            <th width="70">나이</th>
+        </tr>
+        <tr th:each="dto, dtoState: ${list}">
+            <td th:text="${dto.name}">name</td>
+            <td th:text="${dto.age}">age</td>
+        </tr>
+    </table>
+    <br>
+
+    <h1>반복 상태 유지</h1>
+    <table border="1">
+        <tr>
+            <th width="100">번호</th>
+            <th width="100">이름</th>
+            <th width="70">나이</th>
+            <th width="450">기타</th>
+        </tr>
+        <tr th:each="dto, dtoState: ${list}">
+            <td th:text="${dtoState.count}">1</td>
+            <td th:text="${dto.name}">name</td>
+            <td th:text="${dto.age}">age</td>
+            <td>
+                dtoState.index = <span th:text="${dtoState.index}"></span><br>
+                dtoState.count = <span th:text="${dtoState.count}"></span><br>
+                dtoState.size = <span th:text="${dtoState.size}"></span><br>
+                dtoState.even? = <span th:text="${dtoState.even}"></span><br>
+                dtoState.odd? = <span th:text="${dtoState.odd}"></span><br>
+                dtoState.first = <span th:text="${dtoState.first}"></span><br>
+                dtoState.last = <span th:text="${dtoState.last}"></span><br>
+                dtoState.current = <span th:text="${dtoState.current}"></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

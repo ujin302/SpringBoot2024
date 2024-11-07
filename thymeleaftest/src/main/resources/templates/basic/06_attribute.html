@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>속성 설정</h1>
+    <input type="text" name="mock" th:name="uesrName" > <!-- <input type="text" name="uesrName"> -->
+    <!--/* <input type="text" name="uesrName"> */-->
+    <br>
+
+    <h1>속성 추가</h1>
+    <input type="text" class="text" th:attrappend="class=' large'"> <!--/* attrappend: 뒤에 붙는다. */-->
+    <br>
+    <input type="text" class="text" th:attrprepend="class='large '"> <!--/* attrprepend: 앞에 붙는다. */-->
+    <br>
+    <input type="text" class="text" th:classappend="large"> <!--/* classappend: 뒤에 붙는다. 띄어쓰기 안해도 자동으로 뒤에 붙음*/-->
+    <br>
+    
+    <h1>checked 처리</h1>
+    <input type="checkbox" name="active" th:checked="true"> 사과 <br>
+    <input type="checkbox" name="active" th:checked="false"> 딸기 <br>
+    <input type="checkbox" name="active"> 석류 <br>
+
+</body>
+</html>

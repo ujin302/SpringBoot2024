@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>URL 링크</h1>
+    <ul>
+        <li><a th:href="@{/hello}">Basic URL</a></li>
+        <li><a th:href="@{/hello(name=${'홍길동'}, age=${25})}">Query Param: 데이터 있음</a></li>
+        <li><a th:href="@{/hello(name=${name}, age=${age})}">Query Param: 데이터 없음</a></li>
+        <li><a th:href="@{/hello/{name}/{age}(name=${'홍길동'}, age=${25})}">Path Variable</a></li>
+        <li><a th:href="@{/hello/{name}(name=${'홍길동'}, age=${25})}">Path Variable + Query Param</a></li>
+    </ul>
+    <hr>
+    <ul>
+        <li><a th:href="@{/select}">/select 요청</a></li>
+        <li><a th:href="@{/insert(pageno=${pageno})}">Query 문자열로 pageno=1000을 지정하여 /insert 요청</a></li>
+        <li>
+            <a th:href="@{/character/detail/{name}/{number}(name=${'hong'}, number=${25})}">
+                line 캐릭터 중 다섯번째 정보로 요청
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
