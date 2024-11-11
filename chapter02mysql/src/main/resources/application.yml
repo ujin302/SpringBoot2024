@@ -1,0 +1,15 @@
+#서버 포트 설정
+server:
+    port: 8080
+
+# MySQL 설정 - Naver
+spring: 
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://db-pf2ci-kr.vpc-pub-cdb.ntruss.com/studydb?allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+        username: study
+        password: bitcamp123!@#
+
+mybatis: 
+    mapper-locations: classpath:mapper/**/*Mapper.xml
+    type-aliases-package: user.bean

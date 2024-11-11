@@ -5,8 +5,21 @@ import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import Main from './components/main/Main';
 import BoardList from './components/board/BoardList';
 import BoardInput from './components/board/BoardInput';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function App() {
+  // const [d, setD] = useState('');
+
+  useEffect(() => {
+    axios.delete(`http://localhost:9000/react/board/delete`, {
+        params: { seq: 1 }
+    })
+    .then(res => console.log(res.data))
+    .catch(error => console.error("Error:", error));
+
+  }, []);
+
   return (
     <BrowserRouter>
       <>

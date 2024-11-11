@@ -1,0 +1,68 @@
+img {
+    width: 100px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+}
+#board {
+    width: 1000px;
+    margin: 0 auto;
+    display: block;
+}
+table {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+}
+table tr:after {
+    content: '';
+    display: block;
+    float: none;
+    clear: both;
+}
+table .left {
+    text-align: left;
+}
+thead, tbody, tr {
+    display: block;
+    width: 100%;
+}
+td, th {
+    display: block;
+    float: left;
+    padding: 10px 0;
+}
+table thead {
+    border-bottom: solid 2px orange;
+    font-weight: bold;
+}
+table tbody tr {
+    border-bottom: 1px dotted #ccc;
+}
+.example table .id {
+    width: 30%;
+}
+.example table .name {
+    width: 40%;
+}
+.example table .pwd {
+    width: 30%;
+}
+.paging {
+    width: 1000px;
+    text-align: center;
+    margin-top: 20px;
+}
+#currentpaging {
+    color: orange;
+    font-size: 15pt;
+    padding: 3px 7px;
+    border: 1px solid lightgray;
+    
+}
+#paging {
+    font-size: 15pt;
+    color: black;
+    padding: 3px 7px;
+}

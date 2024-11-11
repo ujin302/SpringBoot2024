@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+<body>
+    <img id="maru" alt="마루" src="/image/마루.jpg" onclick="location.href='/'">
+	<table>
+		<tr>
+			<th>이름</th>
+			<td>
+				<input class="input" id="name" name="name" placeholder="이름 입력">
+				<div id="nameDiv" class="div"></div>
+			</td>
+		</tr>
+		<tr>
+			<th>아이디</th>
+			<td>
+				<input class="input" data-checkId="false" id="id" name="id" placeholder="아이디 입력">
+				<div id="idDiv" class="div"></div>
+			</td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td>
+				<input class="input pwd" type="password" id="pwd" name="pwd" placeholder="비밀번호 입력">
+				<div id="pwdDiv" class="div"></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input class="btn" type="button" value="정보수정" onclick="Update(event)">
+				<input class="btn" type="reset" value="다시입력">
+				<input class="btn" type="button" value="회원삭제">
+			</td>
+		</tr>
+	</table>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/js/userDetail.js"></script>
+</body>
+</html>

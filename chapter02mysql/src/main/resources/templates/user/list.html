@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/userlist.css">
+</head>
+<body>
+    <img id="maru" alt="마루" src="/image/마루.jpg" onclick="location.href='/'">
+    <div id="board">
+        <!-- [[${list}]] -->
+        <div class="exec">
+            <!-- 게시물 수  -->
+            총 게시물 수: <span>[[${list.size}]]</span>개
+        </div>
+        
+        <div class="example">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">이름</th>
+                        <th class="id">아이디</th>
+                        <th class="pwd">비밀번호</th>
+                    </tr>
+                </thead>                
+                <tbody>
+                    <th:block th:if="${list != null }">
+                            <tr th:each="dto, dtoState: ${list}">
+                                <td class="name">[[${dto.name}]]</td>
+                                <td class="id"><a href="/Spring/user/userInfo?pg=${paging.currentPgae }&id=${dto.id}">[[${dto.id}]]</a></td>
+                                <td class="pwd">
+                                    [[${dto.pwd}]]
+                                    <!-- <c:forEach begin="0" end="${dto.pwd.length() }" step="1">*</c:forEach> -->
+                                </td>
+                            </tr>
+                    </th:block>
+                </tbody>
+            </table>
+            <!-- <div class="paging">${paging.pagingHTML }</div> -->
+        </div>
+    </div>
+<script type="text/javascript">
+function userPaging(pg) {
+    location.href = "/Spring/user/list?pg=" + pg;
+}
+</script>
+</body>
+</html>
