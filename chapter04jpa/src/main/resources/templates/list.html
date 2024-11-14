@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/Board.css">
+</head>
+<body>
+    <div class="menunav">
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="join">회원가입</a> </li>
+            <li><a>목록</a></li>
+        </ul>
+    </div>
+    <div>
+        <table class='table' id='list'>
+            <thead>
+                <tr>
+                    <td colspan="4">
+                        회원 목록
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- {
+                    list.map(item => 
+                        <tr>
+                            <td class={style.seq}>{item.seq}</td>
+                            <td class={style.id}>{item.id}</td>
+                            <td class={style.name}>{item.name}</td>
+                            <td class={style.subject}>
+                                <Link to='/board/item' onClick={() => onSeq(item.seq)}>
+                                    {item.subject}
+                                </Link>
+                            </td>
+                            <td class={style.content}>{item.content}</td>
+                        </tr>
+                    )
+                } -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

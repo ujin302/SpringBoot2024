@@ -1,9 +1,11 @@
 package com.example.chapter03jpa;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
 public interface BoardService {
 
+    public void write();
+
+    public List<BoardEntity> getList();
     
 } 

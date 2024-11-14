@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+<body>
+    <div class="menunav">
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a>회원가입</a> </li>
+            <li><a href="list">목록</a></li>
+        </ul>
+    </div>
+    <form class='form' >
+        <h2 class='title'>Login</h2>
+        <table class='table'>
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>이름</th>
+                    <td>
+                        <input type="text" id="name" name="name" />
+                        <div id='nameDiv'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td>
+                        <input type="text" id="id" name="id" />
+                        <div id='idDiv'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td>
+                        <input type="password" id="pwd" name="pwd" />
+                        <div id='pwdDiv'></div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr align='center'>
+                    <td colSpan='2'>
+                        <button class='btn' onclick="memberJoin()">회원가입</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/js/join.js"></script>
+</body>
+</html>
