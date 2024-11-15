@@ -72,7 +72,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#idDiv, #pwdDiv {
+#idDiv, #pwdDiv, #nameDiv {
     color: red;
     font-size: 8pt;
 

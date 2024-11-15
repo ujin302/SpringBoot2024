@@ -32,3 +32,12 @@
 
     padding-right: 5%;
 }
+
+/* 이미지 크기와 가운데 정렬 */
+.maruImg {
+    display: block;  /* 이미지가 블록 요소로 처리되어 margin을 적용할 수 있게 함 */
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 20%;
+    object-fit: cover;
+}

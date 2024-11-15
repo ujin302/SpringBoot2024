@@ -1,75 +1,102 @@
 // 아이디 중복 체크 	
 function checkId() {
 	console.log("blur")
-	$.ajax({
-		type: 'get',
-		url: '/memberMVC/member/checkId.do',
-		data: {'id' : $('#id').val()},
-		dataType: 'text',
-		success: function(data) {
-			console.log(data.trim());
-			console.log($(data) === "true");
-			console.log(data === "true");
-			if(data.trim() === "true") {
-				$('#idDiv').text('사용 가능');
+	
+	if($('#id').val() != ''){
+		$('#idDiv').css('color', 'red');
+		$.ajax({
+			type: 'get',
+			url: '/member/checkId',
+			data: {'id' : $('#id').val()},
+			dataType: 'text',
+			success: function(data) {
+				console.log(data.trim());
+				if(data.trim() === "true") {
+					$('#idDiv').text('사용 가능');
+					$('#idDiv').css("color","green");
+				}
+				else {
+					$('#idDiv').text('사용 불가능');
+					$('#idDiv').css('color', 'red');
+				}
 			}
-			else $('#idDiv').text('사용 불가능');
-		}
-	})
+		})
+	} else {
+		$('#idDiv').text('');
+	}
+	
 }
 
 // 아이디 중복 체크 후, 사용자가 id를 다시 설정하였을 경우 
-let focusId = null;
-document.getElementById('id').addEventListener("focus", () => {
-	focusId = document.getElementById('id').value;
-});
+// let focusId = null;
+// document.getElementById('id').addEventListener("focus", () => {
+// 	focusId = $('#id').val();
+// });
 
-document.getElementById('id').addEventListener("blur", () => {
-	if(focusId != document.getElementById('id').value) { // id 변경 
-		document.getElementById('id').dataset['checkid'] = false; // 중복체크 X
-	}
-});
+// document.getElementById('id').addEventListener("blur", () => {
+// 	if(focusId != $('#id').val()) { // id 변경 
+// 		document.getElementById('id').dataset['checkid'] = false; // 중복체크 X
+// 	}
+// });
 
 // 회원가입 시, 유효성 검사 
-function memberJoin(e) {
-    console.log($('#name').val());
-	e.preventDefault();
+function Join(e) {
+	var isJoin = true;
 
 	// 1. 아이디 유효성 확인
 	if($('#idDiv').text() == '사용 불가능') {
-		alert("아이디 중복체크 하세요.");
+		$('#idDiv').text("아이디 중복체크 하세요.");
 		e.preventDefault();
-		return false;
+		isJoin = false;
 	}
 
-	// 2. 이름 유효성 확인
-    if($('#name').val() == '') {
-		alert("이름을 작성하세요.");
+	if($('#idDiv').text() == '') {
+		$('#idDiv').text("아이디을 작성하세요.");
 		e.preventDefault();
-		return false;
+		isJoin = false;
+	}
+	
+	// 2. 이름 유효성 확인
+	if(document.getElementById('name').value == '') {
+		$('#nameDiv').text("이름을 작성하세요.");
+		e.preventDefault();
+		isJoin = false;
 	}
 	
 	// 3. 비밀번호 유효성 확인
 	if(document.getElementById('pwd').value == '') {
-		alert("비밀번호을 작성하세요.");
+		$('#pwdDiv').text("비밀번호을 작성하세요.");
 		e.preventDefault();
-		return false;
-	}		
-	// 3. 비밀번호 재확인 유효성 확인
-	if(document.getElementById('repwd').value == '') {
-		alert("비밀번호 재확인하세요.");
-		e.preventDefault();
-		return false;
-	}else if(document.getElementById('repwd').value != document.getElementById('pwd').value) {
-		alert("비밀번호가 일치하지 않습니다. 비밀번호를 다시 확인하세요.");
-		e.preventDefault();
-		return false;
+		isJoin = false;
 	}
+	
+	if(isJoin) {
+		$.ajax({
+			type: 'post',
+			url: '/member/join/submit',
+			data: $('#joinFrom').serialize(),
+			success: function() {
+				console.log('회원가입');
+				alert("회원가입을 축하합니다.");
+				location.href="/member/list";
+			},
+			error: function(e) {
+				console.log(e);
+				alert('실패');
+			}
+		});	
+	}
+	
 }
 
 $(function() {
-    console.log($('#name'));
-    console.log($('#name').val());
 	// 1. id 중복 체크
-	// $('#id').blur(checkId);
+	$('#id').blur(checkId);
+
+	// 2. Div 초기화
+	$('.input').blur(function() {
+		var n = $(this).attr('name');
+		// console.log("#" + n + "Div");
+		$("#" + n + "Div").text('');
+	});
 });

@@ -15,7 +15,7 @@
             <li><a href="list">목록</a></li>
         </ul>
     </div>
-    <form class='form' >
+    <form class='form' id="joinFrom">
         <h2 class='title'>Login</h2>
         <table class='table'>
             <thead>
@@ -24,21 +24,21 @@
                 <tr>
                     <th>이름</th>
                     <td>
-                        <input type="text" id="name" name="name" />
+                        <input type="text" id="name" name="name" class="input" />
                         <div id='nameDiv'></div>
                     </td>
                 </tr>
                 <tr>
                     <th>아이디</th>
                     <td>
-                        <input type="text" id="id" name="id" />
+                        <input type="text" id="id" name="id" class="input" />
                         <div id='idDiv'></div>
                     </td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
                     <td>
-                        <input type="password" id="pwd" name="pwd" />
+                        <input type="password" id="pwd" name="pwd" class="input" />
                         <div id='pwdDiv'></div>
                     </td>
                 </tr>
@@ -46,7 +46,7 @@
             <tfoot>
                 <tr align='center'>
                     <td colSpan='2'>
-                        <button class='btn' onclick="memberJoin()">회원가입</button>
+                        <button class='btn' onclick="Join(event)">회원가입</button>
                     </td>
                 </tr>
             </tfoot>
